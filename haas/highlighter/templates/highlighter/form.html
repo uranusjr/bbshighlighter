@@ -1,0 +1,42 @@
+{% load i18n staticfiles %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<title>Code Highlighter (BBS ASCII Coloring)</title>
+<meta name="viewport"
+  content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/codemirror.min.css">
+<link rel="stylesheet" href="{% static 'highlighter/css/form.css' %}">
+</head>
+
+<body>
+
+<div class="source side">
+  {{ form }}
+</div>
+<div class="highlighted side">
+  <div class="functions">
+    <button id="function_highlight">{% trans 'Highlight' %}</button>
+    <button id="function_select_all">{% trans 'Select all' %}</button>
+  </div>
+  <div id="rendered" class="rendered" contenteditable="true"></div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script
+  src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/codemirror.min.js">
+</script>
+<script>
+var RENDER_URL = '{% url "highlight" %}';
+</script>
+<script src="{% static 'highlighter/js/form.js' %}"></script>
+
+</body>
+
+</html>

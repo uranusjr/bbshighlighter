@@ -1,0 +1,64 @@
+body {
+    font-family: sans-serif;
+    width: 100%;
+}
+.side {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 48%;
+    padding: 1%;
+}
+.source.side {
+    left: 0;
+    top: 1em;
+}
+.highlighted.side {
+    right: 0;
+}
+.CodeMirror, .rendered {
+    font-family: monospace;
+    font-size: 16px;
+    color: #333;
+}
+.CodeMirror {
+    position: absolute;
+    bottom: 1em;
+    top: 3em;
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    margin: auto;
+}
+.highlighted.side .functions {
+    text-align: center;
+}
+.functions button {
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-right: 1em;
+    height: 2.5em;
+    border: none;
+    background-color: #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+}
+.functions button:last-child {
+    margin-right: 0;
+}
+.functions button:hover {
+    background-color: #aaa;
+    cursor: pointer;
+}
+.rendered {
+    position: absolute;
+    top: 4.5em;
+    bottom: 1em;
+    left: 2em;
+    right: 1em;
+    overflow: scroll;
+}
+.rendered:focus {
+    outline: none;
+    border: none;   /* Make CSSLint shut up */
+}
