@@ -3,6 +3,7 @@
 
 from .base import *     # noqa
 
+ALLOWED_HOSTS = ['bbshighlighter.uranusjr.com']
 
 SECRET_KEY = get_env_var('SECRET_KEY')
 
