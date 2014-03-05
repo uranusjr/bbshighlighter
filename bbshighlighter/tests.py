@@ -11,4 +11,4 @@ from .formatters import BBSFormatter
 def test_format():
     source = 'static'
     highlighted = highlight(source, CLexer(), BBSFormatter())
-    assert_equals(highlighted.strip(), '\x15[38;5;28;01mstatic\x15[39;00m')
+    assert_equals(highlighted.strip(), '\x15[1;32mstatic\x15[m')

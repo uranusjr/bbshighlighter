@@ -39,7 +39,7 @@ class BBSFormatter(Terminal256Formatter):
     """Custom Pygments formatter for BBS ASCII coloring
 
     BBS uses ASCII coloring code with either ^U (0x15) or ESC (0x1b) as the
-    escape character.
+    escape character, and has only 8 colors and bolds (blinks are not used).
     """
 
     ESCAPE_SEQUENCE_CONTROL_U = 'ControlUEscapeSequence'
