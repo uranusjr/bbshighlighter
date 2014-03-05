@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 import os
 import sys
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "haas.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "haas.settings.production")
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(os.path.dirname(PROJECT_ROOT))
