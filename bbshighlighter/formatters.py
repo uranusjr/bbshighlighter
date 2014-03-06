@@ -36,7 +36,7 @@ class ControlUEscapeSequence(ESCEscapeSequence):
 
 
 class BBSFormatter(Terminal256Formatter):
-    """Custom Pygments formatter for BBS ASCII coloring
+    """Custom Pygments formatter for BBS ASCII coloring.
 
     BBS uses ASCII coloring code with either ^U (0x15) or ESC (0x1b) as the
     escape character, and has only 8 colors and bolds (blinks are not used).
@@ -44,6 +44,10 @@ class BBSFormatter(Terminal256Formatter):
 
     ESCAPE_SEQUENCE_CONTROL_U = 'ControlUEscapeSequence'
     ESCAPE_SEQUENCE_ESC = 'ESCEscapeSequence'
+
+    name = 'BBS'
+    aliases = ['bbs']
+    filenames = []
 
     def __init__(self, **options):
         """Customized initializer
