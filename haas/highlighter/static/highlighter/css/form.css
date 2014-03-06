@@ -2,16 +2,31 @@ body {
     font-family: sans-serif;
     width: 100%;
 }
+h1 {
+    font-size: 26px;
+    height: 60px;
+}
+a {
+    text-decoration: none;
+    color: #808080;
+}
+a:hover {
+    color: #333;
+}
+.about {
+    position: absolute;
+    top: 1em;
+    right: 2em;
+}
 .side {
     position: absolute;
-    top: 0;
+    top: 60px;
     bottom: 0;
     width: 48%;
     padding: 1%;
 }
 .source.side {
     left: 0;
-    top: 1em;
 }
 .highlighted.side {
     right: 0;
