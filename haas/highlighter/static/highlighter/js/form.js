@@ -45,4 +45,6 @@ $('#function_select_all').click(function () {
   selectAll();
 });
 
+$('#tabs').tabs({'active': 1});
+
 })(jQuery, CodeMirror);

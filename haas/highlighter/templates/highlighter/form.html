@@ -19,21 +19,67 @@
 
 {% block body %}
 
-<h1>{% trans 'Code Highlighter (BBS ASCII Coloring)' %}</h1>
+<div id="tabs">
 
-<div class="about">
-  <a href="http://uranusjr.com">{% trans 'About' %}</a>
-</div>
+  <h1>{% trans 'Code Highlighter (BBS ASCII Coloring)' %}</h1>
 
-<div class="source side">
-  {{ form }}
-</div>
-<div class="highlighted side">
-  <div class="functions">
-    <button id="function_highlight">{% trans 'Highlight' %}</button>
-    <button id="function_select_all">{% trans 'Select all' %}</button>
+  <ul>
+    <li><a href="#about">{% trans 'About' %}</a></li>
+    <li><a href="#highlighter">{% trans 'Highlighter' %}</a></li>
+  </ul>
+
+  <div id="highlighter">
+    <div class="source side">
+      <div class="functions">
+        {{ form.language.label_tag }}&nbsp;{{ form.language }}
+      </div>
+      {{ form.code }}
+    </div>
+    <div class="highlighted side">
+      <div class="functions">
+        <button id="function_highlight">{% trans 'Highlight' %}</button>
+        <button id="function_select_all">{% trans 'Select all' %}</button>
+      </div>
+      <div id="rendered" class="rendered" contenteditable="true"></div>
+    </div>
   </div>
-  <div id="rendered" class="rendered" contenteditable="true"></div>
+
+  <div id="about" class="about">
+
+  {% blocktrans %}
+
+  <h2>這什麼鬼東西？</h2>
+
+  <p><a href="http://www.ptt.cc/bbs/C_and_CPP/M.1393408128.A.4E6.html" target="_blank">前情提要</a>。後來有人提到 <a href="http://www.gnu.org/software/src-highlite/" target="_blank">GNU Source-Highlight</a>，可是要另外安裝不說，還只能輸出成普通的 terminal 格式（escape 碼是 ESC，不是繁中 BBS 慣用的 ^U）需要另外取代，還是很麻煩。剛好 Python 有個很方便的函式庫 <a href="http://pygments.org/" target="_blank">Pygments</a>，就寫了一個簡單的 formatter，再用 <a href="http://djangoproject.com" target="_blank">Django</a> 做成 service 放上來。命名 HAAS—Highlighter as a Service！</p>
+
+  <h2>怎麼用？</h2>
+
+  <p>左邊貼上你的程式碼，選擇語言，然後按右邊的 “Highlight” 鍵，HAAS 就會幫你把它加上 BSS 色碼產生在右邊。色碼的 escape code 無法在 HTML 顯示，不過它確實存在，不要擔心。我順便幫你全選了，所以看到右邊出現後應該就可以直接拷貝。然後到 BBS 畫面貼上就大功告成！</p>
+
+  <p>如果你不小心把選取按掉了，“Select All” 可以幫你把右邊重新全選。</p>
+
+  <h2>你是誰？</h2>
+
+  <p>腦子進水嫌自己事情不夠多一天到晚自找麻煩的工程師。做過的東西包山包海，從硬體控制到 CSS 都可以寫給你（雖然都寫得不好）。自己做了一個 <a href="https://github.com/uranusjr/Qelly" target="_blank">BBS client</a>，有<a href="http://uranusjr.com/" target="_blank">個人網站</a>，以及一個很少寫的 <a href="http://uranusjr.com/blog/" target="_blank">blog</a>。</p>
+
+  <h2>我覺得這很酷！</h2>
+
+  <p>怎麼可能，我自己都覺得這不太酷。</p>
+
+  <p>好吧，如果你真心覺得這東西還不錯，formatter 和 Django app 的源碼在<a href="https://github.com/uranusjr/bbshighlighter" target="_blank">這裡</a>。它本身是個 Python package（而且是 Pygments 的 plugin），所以你可以執行 <code>python setup.py install</code> 安裝它，然後執行：</p>
+
+  <pre><code>
+    pygmentize -f bbs -l &lt;語言&gt; &lt;檔案&gt;
+  </code></pre>
+
+  <p>就可以直接在本機產出一模一樣的結果。如果你覺得他可以更好，也歡迎直接和我說，或者自己把它 fork 回去改。</p>
+
+  {% endblocktrans %}
+
+  <div class="spacer"></div>
+
+  </div>
+
 </div>
 
 {% endblock %}

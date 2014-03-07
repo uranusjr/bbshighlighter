@@ -3,8 +3,14 @@ body {
     width: 100%;
 }
 h1 {
+    position: absolute;
+    left: 1em;
+    margin: 0;
+    height: 46px;   /* Identical to tab bar */
+    line-height: 46px;
+    z-index: 999;
     font-size: 26px;
-    height: 60px;
+    color: #333;
 }
 a {
     text-decoration: none;
@@ -13,14 +19,34 @@ a {
 a:hover {
     color: #333;
 }
-.about {
+.ui-tabs .ui-tabs-nav li {
+    float: right;
+}
+.ui-tabs {
     position: absolute;
-    top: 1em;
-    right: 2em;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: none;
+}
+.ui-tabs > ul > li > a:focus {
+    outline: none;
+    border: none;
+}
+.ui-tabs-panel {
+    position: absolute;
+    top: 46px;  /* Make way for tab bar */
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.ui-widget-content a {
+    text-decoration: underline;
 }
 .side {
     position: absolute;
-    top: 60px;
+    top: 5px;
     bottom: 0;
     width: 48%;
     padding: 1%;
@@ -31,21 +57,7 @@ a:hover {
 .highlighted.side {
     right: 0;
 }
-.CodeMirror, .rendered {
-    font-family: monospace;
-    font-size: 16px;
-    color: #333;
-}
-.CodeMirror {
-    position: absolute;
-    bottom: 1em;
-    top: 3em;
-    width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    margin: auto;
-}
-.highlighted.side .functions {
+.functions {
     text-align: center;
 }
 .functions button {
@@ -65,15 +77,38 @@ a:hover {
     background-color: #aaa;
     cursor: pointer;
 }
-.rendered {
+.source .functions > label, .source .functions > select {
+    line-height: 2em;
+}
+.CodeMirror, .rendered {
     position: absolute;
-    top: 4.5em;
+    top: 3.5em;
     bottom: 1em;
+    font-family: monospace;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ddd;
+    margin: auto;
+}
+.CodeMirror {
+    width: 100%;
+    height: auto;
+}
+.rendered {
     left: 2em;
     right: 1em;
+    padding: 4px;   /* Align with CodeMirror lines */
     overflow: scroll;
 }
 .rendered:focus {
     outline: none;
-    border: none;   /* Make CSSLint shut up */
+    background-color: #fcfcfc;
+}
+.about {
+    width: 65%;
+    min-width: 450px;
+    margin: auto;
+}
+.about .spacer {
+    height: 5em;
 }
